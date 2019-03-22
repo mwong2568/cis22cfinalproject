@@ -14,11 +14,17 @@ public class main {
 
 		// Heap fill call (Order information)
 
+		String employeeUsername, employeePassword;
+		//Put employee login into local variables(employeeUsername and employeePassword)
+		//***Assuming employees all share a single login
+		
 		String input = "";
+		String username, password;
 		Scanner in = new Scanner(System.in);
 		System.out.println("Welcome to Philz Coffee International!");
 		System.out.print("To log in as a Customer, enter C. To log in as an Employee, enter E.\n");
 		int index;
+		
 
 		while (!input.equals("C") && !input.equals("E")) {
 			System.out.print("Enter your choice: ");
@@ -30,6 +36,16 @@ public class main {
 				//customerPath(customerIndex, hashtable, heap, BST);
 				break;
 			case "E":
+				boolean login = false;
+				while (login != true)
+				{
+				System.out.print("Please enter the username:");
+				username = in.nextLine();
+				System.out.print("Please enter the password:");
+				password = in.nextLine();
+				//if (username == employeeUsername && password == employeePassword)
+					//login = true;
+				}
 				// employeePath();
 				break;
 			default:
