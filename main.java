@@ -70,7 +70,7 @@ public class main {
 				 else
 				 System.out.println("Invalid login. Please try again.");
 				**/
-				return 1;
+				return 1; //temp return statement for testing
 			}
 			break;
 			
@@ -91,10 +91,10 @@ public class main {
 				//Customer C = new Customer(username, password, firstName, lastName, address, phoneNumber)
 				//hashtable.insert(C);
 				//return hashtable.search(C);
-				return 2;
+				return 2;//temp return statement for testing
 				
 			case "G":
-				return -1;
+				return -1;//if guest, return -1.
 				
 			default:
 				System.out.println("Invalid key!");
