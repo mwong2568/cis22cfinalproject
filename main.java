@@ -18,6 +18,7 @@ public class main {
 		Scanner in = new Scanner(System.in);
 		System.out.println("Welcome to Philz Coffee International!");
 		System.out.print("To log in as a Customer, enter C. To log in as an Employee, enter E.\n");
+		int index;
 
 		while (!input.equals("C") && !input.equals("E")) {
 			System.out.print("Enter your choice: ");
@@ -25,7 +26,8 @@ public class main {
 
 			switch (input) {
 			case "C":
-				customerPath();
+				index = customerIndex();
+				//customerPath(customerIndex, hashtable, heap, BST);
 				break;
 			case "E":
 				// employeePath();
@@ -37,7 +39,10 @@ public class main {
 		}
 		in.close();
 	}
-	public static void customerPath(/*Pass in hash table*/)
+	
+	//This function returns the index of the customer in the hash table which we will be using to 
+	//keep track of the customer throughout the program.
+	public static int customerIndex(/*Pass in hash table*/)
 	{
 		String input = "";
 		Scanner in = new Scanner(System.in);
@@ -46,6 +51,7 @@ public class main {
 		while (!input.equals("L") && !input.equals("N") && !input.equals("G")) {
 			System.out.print("To login, enter L. To create a new account, enter N. "
 					+ "To proceed as guest, press G.\n");
+			input = in.nextLine();
 			switch (input) {
 			case "L":
 			//User Login
@@ -60,9 +66,11 @@ public class main {
 				 *Check if the customers login is correct by creating a temp Customer*
 				 Customer C = new Customer(username, password, "", "","","");
 				 if (hashtable.search(C) != -1) //If it matches, remember the customer and proceed to menu
-				 
-				
+				 return hashtable.search(C);
+				 else
+				 System.out.println("Invalid login. Please try again.");
 				**/
+				return 1;
 			}
 			break;
 			
@@ -82,9 +90,19 @@ public class main {
 				phoneNumber = in.nextLine();
 				//Customer C = new Customer(username, password, firstName, lastName, address, phoneNumber)
 				//hashtable.insert(C);
+				//return hashtable.search(C);
+				return 2;
+				
+			case "G":
+				return -1;
+				
+			default:
+				System.out.println("Invalid key!");
+				break;
 			}
 		}
 		in.close();
+		return 0;
 	}
 
 }
